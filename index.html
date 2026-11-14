@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>
+:root{color-scheme:light}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Chá de casa nova Wal e Bruna</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: cabeçalho de convite, barra de busca + categorias, lista em linhas agrupada por cômodo, links de loja à direita (empilham no celular) e linha de reserva embaixo de cada item. */
+:root {
+  --bg: #f2f5f0;
+  --surface: #ffffff;
+  --ink: #16302b;
+  --muted: #5a6e68;
+  --line: #d6dfd9;
+  --accent: #1d6b5f;
+  --accent-ink: #ffffff;
+  --accent-soft: #dcebe6;
+  --warm: #c97a1e;
+  --warm-soft: #f6e6cf;
+  --err: #b3261e;
+  --font-display: "Young Serif", Georgia, "Times New Roman", serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1b18;
+    --surface: #172622;
+    --ink: #e6efeb;
+    --muted: #92a8a1;
+    --line: #2a3d38;
+    --accent: #5cc4b0;
+    --accent-ink: #0b1714;
+    --accent-soft: #1b3630;
+    --warm: #e8a252;
+    --warm-soft: #3a2d1a;
+    --err: #ff8a80;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1b18;
+  --surface: #172622;
+  --ink: #e6efeb;
+  --muted: #92a8a1;
+  --line: #2a3d38;
+  --accent: #5cc4b0;
+  --accent-ink: #0b1714;
+  --accent-soft: #1b3630;
+  --warm: #e8a252;
+  --warm-soft: #3a2d1a;
+  --err: #ff8a80;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  padding-block: 0 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 860px; margin: 0 auto; }
+
+.example-banner {
+  margin-top: 16px;
+  padding: 10px 14px;
+  background: var(--warm-soft);
+  color: var(--ink);
+  border-radius: 8px;
+  font-size: 14px;
+}
+.example-banner strong { color: var(--warm); }
+
+header.hero { padding-block: 44px 28px; }
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(36px, 8.5vw, 60px);
+  line-height: 1.05;
+  margin: 0 0 16px;
+  text-wrap: balance;
+}
+.intro { max-width: 60ch; color: var(--muted); font-size: 17px; margin: 0; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 22px 0 0; padding: 0; list-style: none; font-weight: 600; }
+.facts li { display: flex; gap: 8px; align-items: baseline; min-width: 0; }
+.facts span { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+
+.how {
+  margin-top: 24px;
+  padding: 14px 16px;
+  background: var(--accent-soft);
+  border-radius: 10px;
+  font-size: 15px;
+}
+.how p { margin: 0; }
+
+.controls {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: var(--bg);
+  padding-block: 14px 12px;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 12px;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.toolbar { display: flex; flex-wrap: wrap; gap: 10px; }
+.search { flex: 1 1 220px; min-width: 0; }
+.sort {
+  flex: 1 1 200px;
+  max-width: 100%;
+  font: inherit;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+@media (min-width: 640px) { .sort { flex: 0 0 220px; } }
+.item-cat {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  vertical-align: 1px;
+}
+.search input {
+  width: 100%;
+  font: inherit;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+}
+.search input::placeholder { color: var(--muted); }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: thin; }
+.chip {
+  flex: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+.chip:hover { border-color: var(--accent); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.count { font-size: 13px; color: var(--muted); margin: 0; }
+
+:focus-visible { outline: 3px solid var(--warm); outline-offset: 2px; }
+
+section.group { margin-top: 36px; }
+section.group h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 26px;
+  margin: 0 0 4px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+section.group h2 small { font-family: var(--font-body); font-size: 13px; color: var(--muted); font-weight: 500; }
+ul.items { list-style: none; margin: 0; padding: 0; }
+li.item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px 20px;
+  align-items: center;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.item-name { margin: 0; font-weight: 700; font-size: 17px; overflow-wrap: anywhere; }
+.item-note { margin: 2px 0 0; color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
+.item-price { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.shops { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.shop {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  background: transparent;
+}
+.shop:hover { background: var(--accent); color: var(--accent-ink); }
+.shop svg { width: 12px; height: 12px; flex: none; }
+.badge-done {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--warm-soft);
+  color: var(--warm);
+  font-size: 12px;
+  font-weight: 700;
+  vertical-align: 2px;
+}
+li.item.done .item-name { color: var(--muted); }
+li.item.done .shops { opacity: 0.55; }
+
+.claim { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
+.claim form { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin: 0; width: 100%; }
+.claim input {
+  flex: 1 1 200px;
+  min-width: 0;
+  max-width: 320px;
+  font: inherit;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+}
+.btn {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+}
+a.btn { display: inline-block; text-decoration: none; }
+.btn[disabled] { opacity: 0.6; cursor: default; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn-quiet { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn-quiet:hover { border-color: var(--accent); }
+.err { margin: 0; width: 100%; color: var(--err); font-size: 14px; font-weight: 600; }
+
+.shop-pix { font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; border-color: var(--warm); color: var(--warm); }
+.shop-pix:hover, .shop-pix[aria-expanded="true"] { background: var(--warm); color: var(--bg); }
+.pix {
+  grid-column: 1 / -1;
+  padding: 14px 16px;
+  background: var(--warm-soft);
+  border-radius: 10px;
+  display: grid;
+  gap: 10px;
+}
+.pix p { margin: 0; font-size: 14px; }
+.pix-title { font-weight: 700; font-size: 15px !important; }
+#pixGeral .pix { margin-top: 12px; }
+.pix-row { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.pix-key {
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 9px 12px;
+  border: 1px dashed var(--warm);
+  border-radius: 8px;
+  background: var(--surface);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+.pix-meta { color: var(--muted); }
+
+.empty { margin-top: 40px; color: var(--muted); }
+footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+
+@media (max-width: 560px) {
+  li.item { grid-template-columns: minmax(0, 1fr); }
+  .shops { justify-content: flex-start; }
+  header.hero { padding-block: 32px 22px; }
+  .claim input { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="example-banner" id="exampleBanner" hidden>
+    <strong>Lista de exemplo.</strong> Os itens e links abaixo são só de demonstração.
+  </div>
+
+  <header class="hero">
+    <p class="eyebrow">Lista de presentes</p>
+    <h1 id="title">Chá de casa nova Wal e Bruna</h1>
+    <p class="intro" id="intro"></p>
+    <ul class="facts" id="facts"></ul>
+    <div class="how"><p id="how"></p></div>
+    <div id="pixGeral"></div>
+  </header>
+
+  <div class="controls">
+    <div class="toolbar">
+      <div class="search">
+        <input id="q" type="search" placeholder="Buscar um item" aria-label="Buscar um item" autocomplete="off">
+      </div>
+      <select id="ordem" class="sort" aria-label="Ordenar itens">
+        <option value="lista">Ordem da lista</option>
+        <option value="menor">Menor preço primeiro</option>
+        <option value="maior">Maior preço primeiro</option>
+      </select>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filtrar por categoria"></div>
+    <p class="count" id="count" aria-live="polite"></p>
+  </div>
+
+  <main id="list"></main>
+  <p class="empty" id="empty" hidden>Nenhum item encontrado. Tente outra palavra ou escolha "Todos".</p>
+
+  <footer id="footer"></footer>
+</div>
+
+<script>
+/* ====== EDITE AQUI ====== */
+var CONFIG = {
+  exemplo: false,                      // true mostra o aviso de "lista de exemplo"
+  titulo: "Chá de casa nova Wal e Bruna",
+  intro: "O que importa mesmo é ter você com a gente! Presente não é obrigatório, mas, se quiser nos presentear, a lista tá aqui. Escolha o que couber no seu bolso.",
+  data: "",                            // ex.: "Sábado, 12 de dezembro, 15h"
+  local: "",                           // ex.: "Rua das Flores, 123"
+  whatsapp: "5567981305763",           // número com 55 + DDD, só dígitos; deixe "" para desligar o botão do WhatsApp
+  /* Preencha a chave para o botão Pix aparecer em cada item. tipo: "E-mail", "Celular", "Chave aleatória"... */
+  pix: { chave: "brunavilhar@gmail.com", tipo: "E-mail", nome: "Bruna" },
+  rodape: "Os preços são os da lista da Amazon em 07/11/2026 e podem mudar. Obrigado por fazer parte desse começo. Wal e Bruna"
+};
+
+/* Atalhos que geram um link de busca na loja. Troque por links diretos do produto quando tiver. */
+var LOJA = {
+  "Amazon":        function (q) { return "https://www.amazon.com.br/s?k=" + encodeURIComponent(q); },
+  "Mercado Livre": function (q) { return "https://lista.mercadolivre.com.br/" + q.toLowerCase().replace(/\s+/g, "-"); },
+  "Shopee":        function (q) { return "https://shopee.com.br/search?keyword=" + encodeURIComponent(q); },
+  "Magalu":        function (q) { return "https://www.magazineluiza.com.br/busca/" + encodeURIComponent(q) + "/"; }
+};
+function busca(termo, lojas) {
+  return (lojas || ["Amazon"]).map(function (n) { return { loja: n, url: LOJA[n](termo) }; });
+}
+
+/* Link direto do produto na Amazon, a partir do código dele (ASIN, o trecho depois de /dp/ no link). */
+function dp(asin) {
+  return [{ loja: "Amazon", url: "https://www.amazon.com.br/dp/" + asin }];
+}
+
+/* Cada item: id (fixo, identifica a reserva; não mude depois que os convidados começarem a reservar),
+   nome, comodo, nota e preco (opcionais), links: [{loja, url}].
+   Para acrescentar outra loja, some mais um { loja: "Shopee", url: "https://..." } em links. */
+var ITENS = [
+  /* Cozinha */
+  { id: "fritadeira-oster", nome: "Fritadeira sem óleo Oster", comodo: "Cozinha", nota: "Preta, 127V, modelo OFRT520.", preco: "R$ 449,90", links: dp("B0B72QZXCC") },
+  { id: "bowls-raladores", nome: "Conjunto de bowls de inox com tampa e 3 raladores", comodo: "Cozinha", nota: "Modelo K80.", preco: "R$ 75,90", links: dp("B0G497XR69") },
+  { id: "potes-5", nome: "Kit 5 potes herméticos transparentes", comodo: "Cozinha", nota: "Plástico livre de BPA, empilháveis, de 360 ml a 2300 ml, para freezer e micro-ondas.", preco: "R$ 52,15", links: dp("B0H2QQD9SQ") },
+  { id: "tacas-vinho", nome: "Jogo com 6 taças para vinho tinto", comodo: "Cozinha", nota: "Cristal ecológico, bojo amplo.", preco: "R$ 103,45", links: dp("B0H5TH4QHW") },
+  { id: "organizador-armario", nome: "Kit organizador de armário aramado", comodo: "Cozinha", nota: "7 peças, branco, com suporte de prato e xícara.", preco: "R$ 99,90", links: dp("B0FM8S7NNC") },
+  { id: "pipoqueira", nome: "Pipoqueira Britânia Pop Time", comodo: "Cozinha", nota: "Branca, 127V.", preco: "R$ 118,00", links: dp("B076BB2NCN") },
+  { id: "faqueiro-wolff", nome: "Faqueiro de aço inox Wolff Veneza", comodo: "Cozinha", nota: "16 peças, serve 4 pessoas.", preco: "R$ 94,00", links: dp("B0CXW15GR8") },
+  { id: "potes-vidro", nome: "Kit 3 potes de vidro com tampa", comodo: "Cozinha", nota: "400 ml, 650 ml e 1000 ml, redondos, com travas.", preco: "R$ 89,90", links: dp("B0HHHD2DPL") },
+  { id: "liquidificador-electrolux", nome: "Liquidificador Electrolux inox", comodo: "Cozinha", nota: "Jarra de vidro de 1,5 L, 5 velocidades, função pulsar, 700 W, 220V.", preco: "R$ 239,90", links: dp("B09SVQS9SJ") },
+  { id: "porta-tempero", nome: "Porta tempero giratório", comodo: "Cozinha", nota: "Madeira, com 16 potes de vidro de 80 ml.", preco: "R$ 159,65", links: dp("B0GZ8P6GMX") },
+  { id: "escorredores-inox", nome: "Kit 3 escorredores de inox", comodo: "Cozinha", nota: "Arroz, macarrão e legumes.", preco: "R$ 69,90", links: dp("B0HD4D1LN5") },
+  { id: "espatulas-silicone", nome: "Kit 6 espátulas de silicone", comodo: "Cozinha", nota: "Pretas, resistem a 230 °C.", preco: "R$ 49,90", links: dp("B0GJN9KLHX") },
+  { id: "macarico", nome: "Maçarico culinário portátil", comodo: "Cozinha", nota: "Com regulagem e 2 refis.", preco: "R$ 51,20", links: dp("B0HP32B2YJ") },
+  { id: "rolo-massa", nome: "Rolo de massa de madeira", comodo: "Cozinha", nota: "42 cm, com cabos ergonômicos.", preco: "R$ 25,90", links: dp("B0H4JLNCB5") },
+  { id: "amassador-batata", nome: "Amassador de batata", comodo: "Cozinha", nota: "Manual, para purê, legumes e massas.", links: dp("B0GRHR3GVP") },
+  { id: "frigideira-inox-316", nome: "Frigideira de aço inox 316", comodo: "Cozinha", nota: "26 cm, corpo triplo, sem antiaderente, compatível com indução, gás e fogão elétrico.", preco: "R$ 141,55", links: dp("B0H4HH9PFS") },
+  { id: "wok-rochedo", nome: "Frigideira wok Rochedo Stone Pro", comodo: "Cozinha", nota: "25 cm, preta, antiaderente.", preco: "R$ 75,88", links: dp("B0DLJCT6DL") },
+  { id: "tabua-stolf", nome: "Tábua de madeira teca invertida Stolf", comodo: "Cozinha", nota: "Com canaleta.", preco: "R$ 182,53", links: dp("B0821SHKZV") },
+
+  /* Sala */
+  { id: "aspirador-electrolux", nome: "Aspirador de pó vertical Electrolux", comodo: "Sala", nota: "2 em 1, 1450 W, filtro HEPA, 127V, cinza.", preco: "R$ 170,00", links: dp("B094X2N4HV") },
+  { id: "tapete-belga", nome: "Tapete belga estampado", comodo: "Sala", nota: "2,00 x 1,40 m, estampa 03.", preco: "R$ 142,40", links: dp("B0G3CC3X1R") },
+  { id: "tapete-rustico", nome: "Tapete rústico de algodão cru", comodo: "Sala", nota: "2,00 x 1,40 m, lavável na máquina, antiderrapante.", preco: "R$ 94,10", links: dp("B0CWBNGPL2") },
+  { id: "manta-sofa-areia", nome: "Manta para sofá de 3 lugares", comodo: "Sala", nota: "1,80 x 2,40 m, algodão, com franjas, cor areia.", preco: "R$ 89,87", links: dp("B0FRF5QSPG") },
+  { id: "manta-sofa-verde", nome: "Manta para sofá Decolab", comodo: "Sala", nota: "Boho chic, verde musgo, 150 x 120 cm.", preco: "R$ 37,90", links: dp("B0CN9PDD54") },
+  { id: "vaso-ceramica", nome: "Vaso de cerâmica Intense azul névoa", comodo: "Sala", nota: "Esmaltado, moderno.", preco: "R$ 93,09", links: dp("B0H9T52BDZ") },
+
+  /* Quarto e banheiro */
+  { id: "peseira-manta-capas", nome: "Peseira manta tricô casal queen com 2 capas de almofada", comodo: "Quarto e banheiro", nota: "230 x 60 cm, capas de 60 x 40 cm, verde oliva.", preco: "R$ 309,70", links: dp("B0F455X9VQ") },
+  { id: "peseira-queen", nome: "Peseira tricot queen", comodo: "Quarto e banheiro", nota: "230 cm, desenho em trança.", preco: "R$ 64,90", links: dp("B0FZKZPZCN") },
+  { id: "ar-condicionado-lg", nome: "Ar condicionado split LG Dual Inverter AI Voice", comodo: "Quarto e banheiro", nota: "9000 BTU/h, só frio, 220V, modelo S3-Q09AA31F.", preco: "R$ 2.112,45", links: dp("B0GQJP852H") },
+  { id: "umidificador-easy-air", nome: "Umidificador ultrassônico Easy Air", comodo: "Quarto e banheiro", nota: "1,8 L, branco, modelo HC290 da Multi Saúde.", preco: "R$ 78,00", links: dp("B0FRBBQF36") },
+  { id: "jogo-cama-buddemeyer", nome: "Jogo de cama casal Buddemeyer Soft Cotton", comodo: "Quarto e banheiro", nota: "100% algodão, rosa, 4 peças.", preco: "R$ 299,90", links: dp("B0FNFCHZG6") },
+  { id: "jogo-banho-buddemeyer", nome: "Jogo de banho Buddemeyer Vanilla Extra Soft", comodo: "Quarto e banheiro", nota: "100% algodão, 4 peças (banho e rosto), verde e rosa velvet.", preco: "R$ 173,85", links: dp("B0FKVVVLM1") },
+  { id: "roupao-flannel", nome: "Roupão de banho flannel Golden", comodo: "Quarto e banheiro", nota: "Adulto unissex, microfibra, Appel Home e Sonhare.", preco: "R$ 167,90", links: dp("B0F5359XZ4") },
+  { id: "tapetes-banheiro", nome: "Kit 3 tapetes de banheiro Decolab", comodo: "Quarto e banheiro", nota: "Bege, antiderrapantes: passadeira 1,10 x 0,40 m e tapetes de 60 x 40 e 60 x 50 cm.", preco: "R$ 89,91", links: dp("B0DKTZYS1T") },
+  { id: "prateleiras-banheiro", nome: "Kit 3 prateleiras flutuantes rústicas para banheiro", comodo: "Quarto e banheiro", preco: "R$ 170,05", links: dp("B0HCN4Q2XP") },
+  { id: "lixeira-inox", nome: "Lixeira de aço inox com pedal", comodo: "Quarto e banheiro", nota: "5 litros, balde removível com alça.", preco: "R$ 43,69", links: dp("B0H2KJBVGY") },
+  { id: "cesto-bambu", nome: "Cesto de bambu para roupa suja com tampa", comodo: "Quarto e banheiro", nota: "60 L, alças de corda, forro removível.", preco: "R$ 47,40", links: dp("B0DW4G2L65") },
+
+  /* Iluminação */
+  { id: "abajur-articulado", nome: "Luminária abajur de mesa articulada", comodo: "Iluminação", nota: "Base de madeira natural, preta.", preco: "R$ 124,74", links: dp("B0FMPPHJLF") },
+  { id: "lampada-wifi", nome: "Lâmpada inteligente Wi-Fi RGB", comodo: "Iluminação", nota: "E27 bivolt, compatível com Alexa e Google.", preco: "R$ 49,00", links: dp("B0HM7DG273") },
+
+  /* Área externa */
+  { id: "rede-dormir", nome: "Rede de dormir casal de algodão", comodo: "Área externa", nota: "Gigante, suporta 300 kg.", preco: "R$ 132,71", links: dp("B0DWWNBSSR") },
+  { id: "capacho-kapazi", nome: "Capacho Kapazi Waterkap", comodo: "Área externa", nota: "40 x 60 cm, grafite, seca e retém sujeira.", preco: "R$ 47,90", links: dp("B08B7R5824") },
+  { id: "capacho-coco", nome: "Capacho de fibra de coco", comodo: "Área externa", nota: "40 x 60 cm, natural, base antiderrapante.", preco: "R$ 42,90", links: dp("B0G6NTZGMV") }
+];
+/* ====== FIM DA ÁREA DE EDIÇÃO ====== */
+
+(function () {
+  var ORDEM = ["Cozinha", "Sala", "Quarto e banheiro", "Iluminação", "Área externa"];
+  var comodoAtual = "Todos";
+  var termo = "";
+  var ordem = "lista";      // lista, menor ou maior
+
+  /* Reservas (banco compartilhado) */
+  var db = null;            // fica nulo se a página não consegue gravar reservas
+  var reservas = {};        // id do item -> { nome, por }
+  var meuId = null;
+  var ehEditor = false;
+  var podeEscrever = null;  // false = só leitura
+  var abertoId = null;      // item com o campo de nome aberto
+  var rascunho = "";
+  var salvando = {};
+  var erros = {};
+  var pedirFoco = null;
+  var pixAbertoId = null;   // item com o painel do Pix aberto
+  var copiadoId = null;     // item cuja chave acabou de ser copiada
+
+  var elList = document.getElementById("list");
+  var elChips = document.getElementById("chips");
+  var elCount = document.getElementById("count");
+  var elEmpty = document.getElementById("empty");
+  var elHow = document.getElementById("how");
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function norm(s) { return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
+  function idDe(nome) { return norm(nome).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }
+  ITENS.forEach(function (i) { if (!i.id) i.id = idDe(i.nome); });
+  /* Reserva de um item: a gravada pelos convidados ou a marcada à mão com reservadoPor: "Nome" em ITENS. */
+  function reserva(it) { return reservas[it.id] || (it.reservadoPor ? { nome: it.reservadoPor } : null); }
+  function precoNum(i) {
+    if (!i.preco) return null;
+    var n = parseFloat(i.preco.replace(/[^\d,]/g, "").replace(",", "."));
+    return isNaN(n) ? null : n;
+  }
+
+  function textoComo() {
+    if (CONFIG.whatsapp && (!db || podeEscrever === false)) return "Escolha um item, abra o link da loja que preferir e toque em “Vou dar este” para avisar a Wal e a Bruna pelo WhatsApp. Assim ninguém repete o presente.";
+    if (!db) return "Escolha um item e abra o link da loja que preferir. Depois, avise a Wal ou a Bruna qual presente você vai dar, para ninguém repetir.";
+    if (podeEscrever === false) return "Os presentes já reservados aparecem marcados. Para reservar o seu, peça à Wal ou à Bruna que libere seu acesso, ou avise por mensagem.";
+    return "Escolha um item, abra o link da loja que preferir e toque em “Vou dar este” para reservar. Assim ninguém compra o mesmo presente.";
+  }
+
+  /* Cabeçalho */
+  document.getElementById("title").textContent = CONFIG.titulo;
+  document.title = CONFIG.titulo;
+  document.getElementById("intro").textContent = CONFIG.intro;
+  document.getElementById("footer").textContent = CONFIG.rodape;
+  document.getElementById("exampleBanner").hidden = !CONFIG.exemplo;
+  var facts = document.getElementById("facts");
+  [["Quando", CONFIG.data], ["Onde", CONFIG.local]].forEach(function (f) {
+    if (!f[1]) return;
+    var li = el("li");
+    li.appendChild(el("span", null, f[0]));
+    li.appendChild(document.createTextNode(f[1]));
+    facts.appendChild(li);
+  });
+  if (!facts.children.length) facts.hidden = true;
+
+  /* Categorias na ordem definida; novas entram no fim */
+  var comodos = [];
+  ORDEM.forEach(function (c) { if (ITENS.some(function (i) { return i.comodo === c; })) comodos.push(c); });
+  ITENS.forEach(function (i) { if (comodos.indexOf(i.comodo) < 0) comodos.push(i.comodo); });
+
+  function makeChip(label) {
+    var b = el("button", "chip", label);
+    b.type = "button";
+    b.setAttribute("aria-pressed", label === comodoAtual ? "true" : "false");
+    b.addEventListener("click", function () { comodoAtual = label; syncChips(); render(); });
+    return b;
+  }
+  function syncChips() {
+    Array.prototype.forEach.call(elChips.children, function (b) {
+      b.setAttribute("aria-pressed", b.textContent === comodoAtual ? "true" : "false");
+    });
+  }
+  elChips.appendChild(makeChip("Todos"));
+  comodos.forEach(function (c) { elChips.appendChild(makeChip(c)); });
+
+  var ICON = '<svg viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 2H2v8h8V7.5M7 2h3v3M10 2L5.5 6.5"/></svg>';
+
+  function msgErro(e) {
+    if (e && e.code === "taken") return "Alguém acabou de reservar este item. Escolha outro.";
+    if (e && e.code === "invalid_argument") return "Sua conta não tem permissão para reservar. Peça à Wal ou à Bruna que libere seu acesso.";
+    return "Não foi possível salvar agora. Tente de novo em instantes.";
+  }
+
+  function reservar(it, nomeBruto) {
+    var nome = (nomeBruto || "").trim().slice(0, 60);
+    if (!nome) { erros[it.id] = "Digite seu nome para reservar."; render(); return; }
+    delete erros[it.id];
+    salvando[it.id] = true;
+    render();
+    var ref = db.doc("presentes/" + it.id);
+    ref.get().then(function (s) {
+      if (s.exists) throw { code: "taken" };
+      return ref.set({ nome: nome, por: meuId || null, em: new Date().toISOString() });
+    }).then(function () {
+      abertoId = null;
+      rascunho = "";
+      try { localStorage.setItem("cha-nome", nome); } catch (e) {}
+    }).catch(function (e) {
+      erros[it.id] = msgErro(e);
+    }).then(function () {
+      delete salvando[it.id];
+      render();
+    });
+  }
+
+  function desfazer(it) {
+    delete erros[it.id];
+    salvando[it.id] = true;
+    render();
+    db.doc("presentes/" + it.id).delete().catch(function (e) {
+      erros[it.id] = msgErro(e);
+    }).then(function () {
+      delete salvando[it.id];
+      render();
+    });
+  }
+
+  function abrirForm(it) {
+    abertoId = it.id;
+    rascunho = "";
+    try { rascunho = localStorage.getItem("cha-nome") || ""; } catch (e) {}
+    delete erros[it.id];
+    pedirFoco = "nome-" + it.id;
+    render();
+  }
+
+  function linhaReserva(it) {
+    var r = reserva(it);
+    var busy = !!salvando[it.id];
+    var row = el("div", "claim");
+    if (r) {
+      var meu = ((r.por && r.por === meuId) || ehEditor) && !it.reservadoPor;
+      if (meu) {
+        var d = el("button", "btn btn-quiet", busy ? "Desfazendo..." : "Desfazer reserva");
+        d.type = "button";
+        d.disabled = busy;
+        d.addEventListener("click", function () { desfazer(it); });
+        row.appendChild(d);
+      }
+    } else if (podeEscrever !== false) {
+      if (abertoId === it.id) {
+        var f = el("form");
+        var inp = el("input");
+        inp.type = "text";
+        inp.id = "nome-" + it.id;
+        inp.placeholder = "Seu nome";
+        inp.maxLength = 60;
+        inp.value = rascunho;
+        inp.autocomplete = "name";
+        inp.setAttribute("aria-label", "Seu nome para reservar " + it.nome);
+        inp.addEventListener("input", function () { rascunho = inp.value; });
+        var ok = el("button", "btn btn-primary", busy ? "Salvando..." : "Confirmar");
+        ok.type = "submit";
+        ok.disabled = busy;
+        var no = el("button", "btn btn-quiet", "Cancelar");
+        no.type = "button";
+        no.disabled = busy;
+        no.addEventListener("click", function () { abertoId = null; delete erros[it.id]; render(); });
+        f.addEventListener("submit", function (ev) { ev.preventDefault(); reservar(it, inp.value); });
+        f.appendChild(inp);
+        f.appendChild(ok);
+        f.appendChild(no);
+        row.appendChild(f);
+      } else {
+        var b = el("button", "btn btn-primary", "Vou dar este");
+        b.type = "button";
+        b.addEventListener("click", function () { abrirForm(it); });
+        row.appendChild(b);
+      }
+    }
+    if (erros[it.id]) {
+      var p = el("p", "err", erros[it.id]);
+      p.setAttribute("role", "alert");
+      row.appendChild(p);
+    }
+    return row.children.length ? row : null;
+  }
+
+  function linhaZap(it) {
+    var row = el("div", "claim");
+    var msg = "Oi! Vou dar o presente \"" + it.nome + "\" no chá de casa nova de vocês. Meu nome é: ";
+    var a = el("a", "btn btn-primary", "Vou dar este (avisar no WhatsApp)");
+    a.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg);
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.setAttribute("aria-label", "Avisar no WhatsApp que vai dar " + it.nome + " (abre em nova aba)");
+    row.appendChild(a);
+    return row;
+  }
+
+  function selecionar(node) {
+    try {
+      var r = document.createRange();
+      r.selectNodeContents(node);
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+    } catch (e) {}
+  }
+  function copiar(texto, id, node) {
+    function ok() {
+      copiadoId = id;
+      render();
+      setTimeout(function () { if (copiadoId === id) { copiadoId = null; render(); } }, 2500);
+    }
+    try {
+      navigator.clipboard.writeText(texto).then(ok, function () { selecionar(node); });
+    } catch (e) { selecionar(node); }
+  }
+
+  function painelPix(it, pix) {
+    var box = el("div", "pix");
+    box.appendChild(el("p", "pix-title", it.geral ? "Prefere contribuir com qualquer valor? Use o Pix." : "Prefere contribuir com este item por Pix?"));
+    box.appendChild(el("p", "pix-meta", it.geral
+      ? "Qualquer valor, do jeito que couber no seu bolso."
+      : (it.preco ? "Valor do item: " + it.preco + ". " : "") + "Pode ser qualquer valor, do jeito que couber."));
+    var row = el("div", "pix-row");
+    var chave = el("div", "pix-key", pix.chave);
+    row.appendChild(chave);
+    var b = el("button", "btn btn-primary", copiadoId === it.id ? "Chave copiada" : "Copiar chave");
+    b.type = "button";
+    b.addEventListener("click", function () { copiar(pix.chave, it.id, chave); });
+    row.appendChild(b);
+    box.appendChild(row);
+    var quem = [pix.tipo, pix.nome].filter(Boolean).join(" · ");
+    if (quem) box.appendChild(el("p", "pix-meta", quem));
+    return box;
+  }
+
+  function itemNode(it, plano) {
+    var r = reserva(it);
+    var li = el("li", "item" + (r ? " done" : ""));
+    var left = el("div");
+    var h = el("h3", "item-name", it.nome);
+    if (plano) h.appendChild(el("span", "item-cat", it.comodo));
+    if (r) h.appendChild(el("span", "badge-done", "Reservado por " + (r.nome || "um convidado")));
+    left.appendChild(h);
+    if (it.preco || it.nota) {
+      var np = el("p", "item-note");
+      if (it.preco) np.appendChild(el("span", "item-price", it.preco));
+      if (it.nota) np.appendChild(document.createTextNode((it.preco ? " · " : "") + it.nota));
+      left.appendChild(np);
+    }
+    li.appendChild(left);
+
+    var shops = el("div", "shops");
+    (it.links || []).forEach(function (l) {
+      var a = el("a", "shop");
+      a.href = l.url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.setAttribute("aria-label", it.nome + " na " + l.loja + " (abre em nova aba)");
+      a.appendChild(document.createTextNode(l.loja));
+      a.insertAdjacentHTML("beforeend", ICON);
+      shops.appendChild(a);
+    });
+    var pix = CONFIG.pix && CONFIG.pix.chave ? CONFIG.pix : null;
+    if (pix) {
+      var bp = el("button", "shop shop-pix", "Pix");
+      bp.type = "button";
+      bp.setAttribute("aria-expanded", pixAbertoId === it.id ? "true" : "false");
+      bp.setAttribute("aria-label", "Contribuir com " + it.nome + " por Pix");
+      bp.addEventListener("click", function () { pixAbertoId = pixAbertoId === it.id ? null : it.id; render(); });
+      shops.appendChild(bp);
+    }
+    li.appendChild(shops);
+
+    if (pix && pixAbertoId === it.id) li.appendChild(painelPix(it, pix));
+
+    if (db) {
+      var row = linhaReserva(it);
+      if (row) li.appendChild(row);
+    }
+    if (CONFIG.whatsapp && (!db || podeEscrever === false) && !r) li.appendChild(linhaZap(it));
+    return li;
+  }
+
+  function render() {
+    var ativo = document.activeElement;
+    var focoId = pedirFoco || (ativo && ativo.id && ativo.id.indexOf("nome-") === 0 ? ativo.id : null);
+    var pos = ativo && ativo.id === focoId && typeof ativo.selectionStart === "number" ? ativo.selectionStart : null;
+    pedirFoco = null;
+
+    elHow.textContent = textoComo();
+    var pg = document.getElementById("pixGeral");
+    pg.textContent = "";
+    if (CONFIG.pix && CONFIG.pix.chave) pg.appendChild(painelPix({ id: "geral", geral: true }, CONFIG.pix));
+    elList.textContent = "";
+    var t = norm(termo.trim());
+    var total = 0;
+    function passa(i) {
+      return (comodoAtual === "Todos" || comodoAtual === i.comodo) &&
+        (!t || norm(i.nome + " " + (i.nota || "")).indexOf(t) >= 0);
+    }
+    function secao(titulo, itens, plano) {
+      total += itens.length;
+      var sec = el("section", "group");
+      var h2 = el("h2", null, titulo);
+      h2.appendChild(el("small", null, itens.length + (itens.length === 1 ? " item" : " itens")));
+      sec.appendChild(h2);
+      if (plano && itens.some(function (i) { return precoNum(i) == null; })) {
+        sec.appendChild(el("p", "item-note", "Itens sem preço na lista ficam no fim."));
+      }
+      var ul = el("ul", "items");
+      itens.forEach(function (i) { ul.appendChild(itemNode(i, plano)); });
+      sec.appendChild(ul);
+      elList.appendChild(sec);
+    }
+    if (ordem === "lista") {
+      comodos.forEach(function (c) {
+        var itens = ITENS.filter(function (i) { return i.comodo === c && passa(i); });
+        if (itens.length) secao(c, itens, false);
+      });
+    } else {
+      var todos = ITENS.filter(passa);
+      var f = ordem === "menor" ? 1 : -1;
+      todos.sort(function (a, b) {
+        var pa = precoNum(a), pb = precoNum(b);
+        if (pa == null && pb == null) return 0;
+        if (pa == null) return 1;
+        if (pb == null) return -1;
+        return (pa - pb) * f;
+      });
+      if (todos.length) secao(ordem === "menor" ? "Do menor para o maior preço" : "Do maior para o menor preço", todos, true);
+    }
+    elEmpty.hidden = total > 0;
+
+    var livres = ITENS.filter(function (i) { return !reserva(i); }).length;
+    elCount.textContent = total + (total === 1 ? " item na tela" : " itens na tela") +
+      (db || ITENS.some(function (i) { return i.reservadoPor; }) ? " · " + livres + " ainda sem presente" : "");
+
+    if (focoId) {
+      var novo = document.getElementById(focoId);
+      if (novo) {
+        novo.focus();
+        if (pos != null) { try { novo.setSelectionRange(pos, pos); } catch (e) {} }
+      }
+    }
+  }
+
+  async function iniciar() {
+    if (!window.claude || !window.claude.use) return;
+    var dbNs = null, user = null;
+    try { dbNs = await window.claude.use("db"); } catch (e) {}
+    if (!dbNs) return;
+    try { user = await window.claude.use("user"); } catch (e) {}
+    if (user) {
+      try { meuId = (await user.id()) || null; } catch (e) {}
+      try { ehEditor = !!(await user.canEdit()); } catch (e) {}
+      try { if ((await user.can("data.write")) === false) podeEscrever = false; } catch (e) {}
+    }
+    db = dbNs;
+    render();
+    var cancelado = false;
+    var timer = setTimeout(function () {
+      if (cancelado) return;
+      elCount.textContent += " · as reservas ainda estão carregando";
+    }, 10000);
+    db.collection("presentes").onSnapshot(function (snap) {
+      cancelado = true;
+      clearTimeout(timer);
+      var m = {};
+      snap.docs.forEach(function (d) { m[d.id] = d.data() || {}; });
+      reservas = m;
+      render();
+    }, function () {
+      cancelado = true;
+      clearTimeout(timer);
+      db = null;
+      render();
+    });
+  }
+
+  document.getElementById("q").addEventListener("input", function (e) { termo = e.target.value; render(); });
+  document.getElementById("ordem").addEventListener("change", function (e) { ordem = e.target.value; render(); });
+  render();
+  iniciar();
+})();
+</script>
+</body>
+</html>
