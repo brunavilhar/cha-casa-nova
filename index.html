@@ -343,8 +343,8 @@ var CONFIG = {
   exemplo: false,                      // true mostra o aviso de "lista de exemplo"
   titulo: "Chá de casa nova Wal e Bruna",
   intro: "O que importa mesmo é ter você com a gente! Presente não é obrigatório, mas, se quiser nos presentear, a lista tá aqui. Escolha o que couber no seu bolso.",
-  data: "",                            // ex.: "Sábado, 12 de dezembro, 15h"
-  local: "",                           // ex.: "Rua das Flores, 123"
+  data: "Sábado, 19 de dezembro, às 18h",
+  local: "Rua São Lázaro, 71, Santa Luzia",
   whatsapp: "5567981305763",           // número com 55 + DDD, só dígitos; deixe "" para desligar o botão do WhatsApp
   /* Preencha a chave para o botão Pix aparecer em cada item. tipo: "E-mail", "Celular", "Chave aleatória"... */
   pix: { chave: "brunavilhar@gmail.com", tipo: "E-mail", nome: "Bruna" },
@@ -387,17 +387,34 @@ var ITENS = [
   { id: "rolo-massa", nome: "Rolo de massa de madeira", comodo: "Cozinha", nota: "42 cm, com cabos ergonômicos.", preco: "R$ 25,90", links: dp("B0H4JLNCB5") },
   { id: "frigideira-inox-316", nome: "Frigideira de aço inox 316", comodo: "Cozinha", nota: "26 cm, corpo triplo, sem antiaderente, compatível com indução, gás e fogão elétrico.", preco: "R$ 141,55", links: dp("B0H4HH9PFS") },
   { id: "tabua-stolf", nome: "Tábua de madeira teca invertida Stolf", comodo: "Cozinha", nota: "Com canaleta.", preco: "R$ 182,53", links: dp("B0821SHKZV") },
-  { id: "garrafa-kouda", nome: "Garrafa térmica Kouda Ladakh", comodo: "Cozinha", nota: "660 ml, verde sálvia.", links: dp("B0BKC7CW31") },
+  { id: "panos-prato-teka", nome: "Kit 6 panos de prato Teka Chef Premium", comodo: "Cozinha", nota: "Copa atoalhado felpudo.", preco: "R$ 62,00", links: dp("B0BZ36M38X") },
+  { id: "escorredor-decolab", nome: "Escorredor de louça Decolab 2 andares", comodo: "Cozinha", nota: "Branco, inox, com dreno e porta-esponja.", preco: "R$ 90,12", links: dp("B0F1DQZ6T6") },
+  { id: "porta-talheres-bambu", nome: "Porta-talheres de bambu Mimo Style Ecokitchen", comodo: "Cozinha", nota: "5 compartimentos.", preco: "R$ 38,70", links: dp("B07BJK1HCR") },
+  { id: "potes-retangulares", nome: "Kit 4 potes de vidro herméticos retangulares", comodo: "Cozinha", nota: "1040 ml, tampa antivazamento, empilháveis; vão ao freezer, micro-ondas (sem a tampa) e lava-louças.", preco: "R$ 66,49", links: dp("B0H73FW5G1") },
+  { id: "cafeteira-dolce-gusto", nome: "Cafeteira espresso Arno Nescafé Dolce Gusto Genio S Plus", comodo: "Cozinha", nota: "Preta, modelo DGS2.", preco: "R$ 449,88", links: dp("B08J89FSXX") },
+  { id: "forma-bolo-furo", nome: "Forma de bolo redonda antiaderente com furo central", comodo: "Cozinha", nota: "24 cm, para bolo e pudim.", preco: "R$ 20,27", links: dp("B0H7GHYN7L") },
+  { id: "boleira", nome: "Boleira com cúpula transparente", comodo: "Cozinha", nota: "Base de madeira redonda, tamanho grande.", preco: "R$ 46,09", links: dp("B0HPTW2KQV") },
+  { id: "pote-wolff-bambu", nome: "Pote de vidro Wolff Classic com tampa de bambu", comodo: "Cozinha", nota: "450 ml.", preco: "R$ 48,60", links: dp("B0CTCYYKC9") },
 
   /* Sala */
   { id: "aspirador-electrolux", nome: "Aspirador de pó vertical Electrolux", comodo: "Sala", nota: "2 em 1, 1450 W, filtro HEPA, 127V, cinza.", preco: "R$ 170,00", links: dp("B094X2N4HV") },
   { id: "manta-sofa-areia", nome: "Manta para sofá de 3 lugares", comodo: "Sala", nota: "1,80 x 2,40 m, algodão, com franjas, cor areia.", preco: "R$ 89,87", links: dp("B0FRF5QSPG") },
   { id: "manta-sofa-verde", nome: "Manta para sofá Decolab", comodo: "Sala", nota: "Boho chic, verde musgo, 150 x 120 cm.", preco: "R$ 37,90", links: dp("B0CN9PDD54") },
   { id: "tapete-sisal", nome: "Tapete sisal sintético e algodão 2,00 x 2,50 m", comodo: "Sala", nota: "Antiderrapante emborrachado, cru bege claro, estilo juta rústico geométrico.", links: dp("B0CW6MVZYD") },
-  { id: "passadeira-domani", nome: "Tapete passadeira clássico persa belga Domani", comodo: "Sala", nota: "0,50 x 0,80 m, petúnia bege, antiderrapante.", links: dp("B0GYBCD3HQ") },
+  { id: "passadeira-domani", nome: "Tapete passadeira clássico persa belga Domani", comodo: "Sala", nota: "0,50 x 0,80 m, petúnia bege, antiderrapante.", preco: "R$ 38,00", links: dp("B0GYBCD3HQ") },
+  { id: "cortina-linho", nome: "Cortina de gaze de linho com trilho suíço", comodo: "Sala", nota: "Palha, off white, 4,00 m de largura por 2,80 m de altura.", preco: "R$ 136,80", links: dp("B0GSXGS5JV") },
+  { id: "passadeira-domani-azul", nome: "Tapete passadeira clássico persa belga Domani", comodo: "Sala", nota: "0,50 x 1,80 m, petúnia azul, antiderrapante.", preco: "R$ 72,20", links: dp("B0H34YBPK8") },
+  { id: "tapete-belga", nome: "Tapete belga estampado", comodo: "Sala", nota: "2,00 x 1,40 m, estampa 03.", preco: "R$ 142,40", links: dp("B0G3CC3X1R") },
+  { id: "tapete-rustico", nome: "Tapete rústico de algodão cru", comodo: "Sala", nota: "2,00 x 1,40 m, lavável na máquina, antiderrapante.", preco: "R$ 76,49", links: dp("B0CWBNGPL2") },
+  { id: "tapete-chevron-offwhite", nome: "Tapete de algodão rústico chevron", comodo: "Sala", nota: "2,00 x 1,40 m, off white, emborrachado, antiderrapante, lavável.", preco: "R$ 129,90", links: dp("B09VY4QMS9") },
+  { id: "tapete-relevo", nome: "Tapete de sala de pelo baixo com relevo", comodo: "Sala", nota: "2,00 x 1,40 m, antiderrapante.", preco: "R$ 113,05", links: dp("B0HHG42XK1") },
+  { id: "tapete-boho-caramelo", nome: "Tapete boho estonado caramelo", comodo: "Sala", nota: "2,00 x 1,40 m, cru caramelo, artesanal, antiderrapante.", preco: "R$ 81,13", links: dp("B0CZBX9K76") },
+  { id: "vela-banana-caramelo", nome: "Vela aromática banana e caramelo", comodo: "Sala", nota: "130 g, dura 72 horas.", preco: "R$ 19,90", links: dp("B0GQ5HZ56K") },
+  { id: "velas-lavanda-bamboo", nome: "Kit 2 velas aromáticas cuore Studio, lavanda e bamboo", comodo: "Sala", nota: "100 g cada, pote de vidro com tampa de madeira, 20 horas.", preco: "R$ 56,99", links: dp("B0FSY8DPHL") },
+  { id: "velas-cha-branco-lavanda", nome: "Kit 2 velas aromáticas cuore Studio, chá branco e lavanda", comodo: "Sala", nota: "100 g cada, pote de vidro com tampa de madeira, 20 horas.", preco: "R$ 56,99", links: dp("B0GV4R7YG7") },
+  { id: "velas-vanilla-cereja", nome: "Kit 2 velas aromáticas cuore Studio, vanilla e cereja com avelã", comodo: "Sala", nota: "100 g cada, pote de vidro com tampa de madeira, 20 horas.", preco: "R$ 56,99", links: dp("B0G4NLDZB8") },
 
   /* Quarto e banheiro */
-  { id: "peseira-manta-capas", nome: "Peseira manta tricô casal queen com 2 capas de almofada", comodo: "Quarto e banheiro", nota: "230 x 60 cm, capas de 60 x 40 cm, verde oliva.", preco: "R$ 309,70", links: dp("B0F455X9VQ") },
   { id: "peseira-queen", nome: "Peseira tricot queen", comodo: "Quarto e banheiro", nota: "230 cm, desenho em trança.", preco: "R$ 64,90", links: dp("B0FZKZPZCN") },
   { id: "ar-condicionado-lg", nome: "Ar condicionado split LG Dual Inverter AI Voice", comodo: "Quarto e banheiro", nota: "9000 BTU/h, só frio, 220V, modelo S3-Q09AA31F.", preco: "R$ 2.112,45", links: dp("B0GQJP852H") },
   { id: "umidificador-easy-air", nome: "Umidificador ultrassônico Easy Air", comodo: "Quarto e banheiro", nota: "1,8 L, branco, modelo HC290 da Multi Saúde.", preco: "R$ 78,00", links: dp("B0FRBBQF36") },
@@ -406,11 +423,22 @@ var ITENS = [
   { id: "prateleiras-banheiro", nome: "Kit 3 prateleiras flutuantes rústicas para banheiro", comodo: "Quarto e banheiro", preco: "R$ 170,05", links: dp("B0HCN4Q2XP") },
   { id: "lixeira-inox", nome: "Lixeira de aço inox com pedal", comodo: "Quarto e banheiro", nota: "5 litros, balde removível com alça.", preco: "R$ 43,69", links: dp("B0H2KJBVGY") },
   { id: "cesto-bambu", nome: "Cesto de bambu para roupa suja com tampa", comodo: "Quarto e banheiro", nota: "60 L, alças de corda, forro removível.", preco: "R$ 47,40", links: dp("B0DW4G2L65") },
-  { id: "passadeira-chevron", nome: "Tapete passadeira para beira de cama", comodo: "Quarto e banheiro", nota: "0,65 x 1,50 m, algodão cru, geométrico chevron, lavável na máquina, antiderrapante.", links: dp("B0DMWY84FT") },
+  { id: "passadeira-chevron", nome: "Tapete passadeira para beira de cama", comodo: "Quarto e banheiro", nota: "0,65 x 1,50 m, algodão cru, geométrico chevron, lavável na máquina, antiderrapante.", preco: "R$ 66,40", links: dp("B0DMWY84FT") },
+  { id: "tapetes-microfibra-taupe", nome: "Kit 2 tapetes de banheiro de microfibra", comodo: "Quarto e banheiro", nota: "58 x 38 cm, taupe, antiderrapantes e absorventes.", preco: "R$ 26,05", links: dp("B0H7K8VDXB") },
+  { id: "tapete-diatomita", nome: "Tapete de pedra diatomita LYOR para banheiro", comodo: "Quarto e banheiro", nota: "60 x 39 cm, cinza.", preco: "R$ 49,00", links: dp("B0DNY5FQY3") },
+  { id: "travesseiros-altenburg", nome: "Kit 2 travesseiros Altenburg extra firmes", comodo: "Quarto e banheiro", nota: "50 x 70 cm, 180 fios.", preco: "R$ 113,90", links: dp("B08DRJN89D") },
+  { id: "tapete-kapazi-allegro", nome: "Tapete de banheiro Kapazi Allegro", comodo: "Quarto e banheiro", nota: "40 x 60 cm, branco, algodão, antiderrapante.", preco: "R$ 30,88", links: dp("B07BZ543K3") },
+  { id: "tapete-banheiro-box", nome: "Tapete de banheiro super soft para box", comodo: "Quarto e banheiro", nota: "60 x 40 cm, antiderrapante e absorvente.", preco: "R$ 19,90", links: dp("B0HLG3MMQN") },
+  { id: "toalhas-maya", nome: "Jogo de toalhas Buddemeyer Maya Extra Soft", comodo: "Quarto e banheiro", nota: "4 peças de banho, bege e kaki.", preco: "R$ 169,90", links: dp("B0FLYP44G8") },
+  { id: "toalhas-florentina", nome: "Jogo de toalhas Buddemeyer Florentina Extra Soft", comodo: "Quarto e banheiro", nota: "4 peças de banho, bege.", preco: "R$ 139,00", links: dp("B08FK58K8P") },
+  { id: "caixas-5-tampa", nome: "Kit 5 caixas organizadoras com tampa", comodo: "Quarto e banheiro", nota: "Plástico resistente, multiuso, bege.", preco: "R$ 62,90", links: dp("B0FG42WRB8") },
+  { id: "organizador-cestos-bambu", nome: "Organizador com 3 cestos grandes de bambu", comodo: "Quarto e banheiro", nota: "Com tecido removível, para lavanderia, banheiro, quarto e closet.", preco: "R$ 57,00", links: dp("B0GHP6B8NH") },
+  { id: "caixas-dobraveis-6", nome: "Kit 6 caixas organizadoras dobráveis grandes", comodo: "Quarto e banheiro", nota: "26 litros, 47 x 28 x 20 cm, com alça.", preco: "R$ 99,65", links: dp("B0H7QHQFXT") },
 
   /* Iluminação */
   { id: "abajur-articulado", nome: "Luminária abajur de mesa articulada", comodo: "Iluminação", nota: "Base de madeira natural, preta.", preco: "R$ 124,74", links: dp("B0FMPPHJLF") },
-  { id: "lampada-wifi", nome: "Lâmpada inteligente Wi-Fi RGB", comodo: "Iluminação", nota: "E27 bivolt, compatível com Alexa e Google.", preco: "R$ 49,00", links: dp("B0HM7DG273") },
+  { id: "luminaria-chao-led", nome: "Luminária de chão moderna de LED", comodo: "Iluminação", nota: "9 W, 3 temperaturas de cor, 110V/220V.", preco: "R$ 137,31", links: dp("B0GX5JYZKK") },
+  { id: "luminaria-chao", nome: "Luminária de chão de LED LucZeng", comodo: "Iluminação", nota: "Moderna, 110V/240V.", preco: "R$ 152,61", links: dp("B0H2F33HDB") },
 
   /* Área externa */
   { id: "rede-dormir", nome: "Rede de dormir casal de algodão", comodo: "Área externa", nota: "Gigante, suporta 300 kg.", preco: "R$ 132,71", links: dp("B0DWWNBSSR") },
