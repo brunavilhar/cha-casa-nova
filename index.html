@@ -689,7 +689,7 @@ var ITENS = [
     var left = el("div");
     var h = el("h3", "item-name", it.nome);
     if (plano) h.appendChild(el("span", "item-cat", it.comodo));
-    if (r) h.appendChild(el("span", "badge-done", "Reservado por " + (r.nome || "um convidado")));
+    if (r) h.appendChild(el("span", "badge-done", it.reservadoPor === "Já presenteado" ? "Já presenteado" : "Reservado por " + (r.nome || "um convidado")));
     left.appendChild(h);
     if (it.preco || it.nota) {
       var np = el("p", "item-note");
